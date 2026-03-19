@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gunduz Ozan — Software Engineer</title>
+    <meta
+      name="description"
+      content="Software Engineer and Technical Leader with 20+ years of full-stack development expertise. Building high-performance systems and indie apps."
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #06080f;
+        --surface: rgba(255, 255, 255, 0.03);
+        --border: rgba(255, 255, 255, 0.06);
+        --border-hover: rgba(255, 255, 255, 0.12);
+        --text: #e2e8f0;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --accent: #60a5fa;
+        --accent-2: #a78bfa;
+        --accent-3: #818cf8;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: -apple-system, "SF Pro Display", "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: var(--accent-3);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      a:hover {
+        color: var(--accent-2);
+      }
+
+      /* ── Nav ──────────────────────────────────────── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 20px 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(6, 8, 15, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      nav .name {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+        color: var(--text);
+      }
+
+      nav .nav-links a {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-left: 28px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      nav .nav-links a:hover {
+        color: var(--text);
+      }
+
+      /* ── Hero ──────────────────────────────────────── */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 120px 32px 80px;
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 10%;
+        right: -200px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(96, 165, 250, 0.06) 0%,
+          rgba(167, 139, 250, 0.04) 40%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .hero .greeting {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--accent);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 6vw, 4.5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -1.5px;
+        margin-bottom: 28px;
+      }
+
+      .hero h1 .highlight {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero .summary {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        max-width: 580px;
+        line-height: 1.7;
+        margin-bottom: 40px;
+      }
+
+      .hero-links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .hero-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.2s;
+      }
+
+      .hero-links .primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-3));
+        color: #06080f;
+      }
+
+      .hero-links .primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 24px rgba(96, 165, 250, 0.25);
+      }
+
+      .hero-links .secondary {
+        border: 1px solid var(--border-hover);
+        color: var(--text-secondary);
+      }
+
+      .hero-links .secondary:hover {
+        border-color: var(--accent-3);
+        color: var(--text);
+      }
+
+      /* ── Section shared ────────────────────────────── */
+      section {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 100px 32px;
+      }
+
+      .section-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--accent);
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin-bottom: 48px;
+        color: #f1f5f9;
+      }
+
+      .divider {
+        max-width: 860px;
+        margin: 0 auto;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--border-hover),
+          transparent
+        );
+      }
+
+      /* ── Experience ────────────────────────────────── */
+      .timeline {
+        position: relative;
+        padding-left: 32px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        bottom: 8px;
+        width: 1px;
+        background: linear-gradient(
+          to bottom,
+          var(--accent),
+          var(--accent-2),
+          var(--border)
+        );
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 48px;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -36px;
+        top: 8px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 12px rgba(96, 165, 250, 0.4);
+      }
+
+      .timeline-item:nth-child(2)::before {
+        background: var(--accent-3);
+        box-shadow: 0 0 12px rgba(129, 140, 248, 0.4);
+      }
+
+      .timeline-item:nth-child(3)::before {
+        background: var(--accent-2);
+        box-shadow: 0 0 12px rgba(167, 139, 250, 0.4);
+      }
+
+      .timeline-item:nth-child(n + 4)::before {
+        background: var(--text-muted);
+        box-shadow: none;
+      }
+
+      .timeline-company {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-bottom: 4px;
+      }
+
+      .timeline-role {
+        font-size: 0.95rem;
+        color: var(--accent-3);
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .timeline-date {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+      }
+
+      .timeline-desc {
+        font-size: 0.92rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .timeline-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 12px;
+      }
+
+      .timeline-stack span {
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 100px;
+        background: rgba(96, 165, 250, 0.08);
+        color: var(--accent);
+        border: 1px solid rgba(96, 165, 250, 0.12);
+      }
+
+      /* ── Apps ──────────────────────────────────────── */
+      .app-card {
+        display: flex;
+        gap: 28px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 32px;
+        transition: border-color 0.3s, transform 0.3s;
+      }
+
+      .app-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-2px);
+      }
+
+      .app-icon {
+        width: 88px;
+        height: 88px;
+        border-radius: 20px;
+        flex-shrink: 0;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+      }
+
+      .app-info h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .app-info h3 .x {
+        color: var(--accent);
+      }
+
+      .app-info h3 .o {
+        color: var(--accent-2);
+      }
+
+      .app-info h3 .fade {
+        background: linear-gradient(135deg, var(--accent-3), #6366a5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .app-tagline {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+        line-height: 1.5;
+      }
+
+      .app-badges {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .app-badges a {
+        display: inline-block;
+        transition: transform 0.2s;
+      }
+
+      .app-badges a:hover {
+        transform: scale(1.05);
+      }
+
+      .app-badges img {
+        height: 40px;
+      }
+
+      .badge-soon {
+        display: inline-flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 16px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      /* ── Skills ────────────────────────────────────── */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .skill-group {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 24px;
+        transition: border-color 0.3s;
+      }
+
+      .skill-group:hover {
+        border-color: var(--border-hover);
+      }
+
+      .skill-group h3 {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 14px;
+      }
+
+      .skill-group p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      /* ── Contact ───────────────────────────────────── */
+      .contact-grid {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .contact-card {
+        flex: 1;
+        min-width: 200px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 24px;
+        transition: border-color 0.3s, transform 0.2s;
+        display: block;
+      }
+
+      .contact-card:hover {
+        border-color: var(--accent-3);
+        transform: translateY(-2px);
+        color: var(--text);
+      }
+
+      .contact-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 8px;
+      }
+
+      .contact-value {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      /* ── Footer ────────────────────────────────────── */
+      footer {
+        text-align: center;
+        padding: 40px 32px;
+        border-top: 1px solid var(--border);
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      /* ── Responsive ────────────────────────────────── */
+      @media (max-width: 640px) {
+        nav {
+          padding: 16px 20px;
+        }
+
+        nav .nav-links a {
+          margin-left: 16px;
+          font-size: 0.8rem;
+        }
+
+        section {
+          padding: 72px 20px;
+        }
+
+        .hero {
+          padding: 100px 20px 60px;
+        }
+
+        .app-card {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+          padding: 24px;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title {
+          font-size: 1.6rem;
+        }
+
+        .timeline {
+          padding-left: 24px;
+        }
+
+        .timeline-item::before {
+          left: -28px;
+        }
+      }
+
+      /* ── Fade in animation ─────────────────────────── */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav>
+      <span class="name">Gunduz Ozan</span>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#apps">Apps</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <p class="greeting">Software Engineer & Technical Leader</p>
+      <h1>
+        Building <span class="highlight">high-performance</span> systems for
+        two decades.
+      </h1>
+      <p class="summary">
+        20+ years of full-stack engineering across Wall Street and beyond.
+        From architecting mission-critical trading platforms at Citadel and
+        J.P. Morgan to shipping indie apps — I build things that work under
+        pressure.
+      </p>
+      <div class="hero-links">
+        <a href="#contact" class="primary">Get in touch</a>
+        <a href="https://github.com/gunduzo" class="secondary">GitHub</a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Experience -->
+    <section id="experience" class="fade-in">
+      <p class="section-label">Experience</p>
+      <h2 class="section-title">Where I've built things</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-company">Citadel Securities</div>
+          <div class="timeline-role">Lead UI Engineer & Architect</div>
+          <div class="timeline-date">Sep 2018 – Jan 2025 · New York</div>
+          <div class="timeline-desc">
+            Led a team of five engineers building 20+ mission-critical trading
+            applications for global options market-making desks. Drove the
+            full modernization from legacy C# to React/Electron. Stood up the
+            team's first CI/CD pipeline.
+          </div>
+          <div class="timeline-stack">
+            <span>React</span>
+            <span>Electron</span>
+            <span>C#</span>
+            <span>Python</span>
+            <span>C++</span>
+            <span>gRPC</span>
+            <span>KDB</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-company">J.P. Morgan</div>
+          <div class="timeline-role">Lead UI Engineer & Architect</div>
+          <div class="timeline-date">Mar 2011 – Sep 2018 · New York</div>
+          <div class="timeline-desc">
+            Led and architected equity derivatives platforms across Options
+            Sales & Trading. Directed development of MaMa — a comprehensive
+            options trading, pricing, and RFQ platform. Cross-functional
+            coordination across DeltaOne, Index, Exotics, and Sales desks.
+          </div>
+          <div class="timeline-stack">
+            <span>C#</span>
+            <span>Java</span>
+            <span>C++</span>
+            <span>FIX</span>
+            <span>MongoDB</span>
+            <span>SQL</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-company">AllianceBernstein</div>
+          <div class="timeline-role">Sr. Programmer</div>
+          <div class="timeline-date">Apr 2007 – Mar 2011 · New York</div>
+          <div class="timeline-desc">
+            Led UI-heavy projects for Sales, PMG, Legal, and Ops teams.
+            Designed SnapWin — a multi-department desktop workflow app.
+          </div>
+          <div class="timeline-stack">
+            <span>C#</span>
+            <span>WPF</span>
+            <span>WCF</span>
+            <span>SQL Server</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-company">Philips Medical Systems</div>
+          <div class="timeline-role">Sr. .NET Application Developer</div>
+          <div class="timeline-date">Nov 2006 – Apr 2007 · New York</div>
+          <div class="timeline-desc">
+            Real-time UI applications for medical parts processing and SAP
+            backend integration.
+          </div>
+          <div class="timeline-stack">
+            <span>C#</span>
+            <span>.NET</span>
+            <span>SQL Server</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Apps -->
+    <section id="apps" class="fade-in">
+      <p class="section-label">Apps</p>
+      <h2 class="section-title">What I'm shipping</h2>
+
+      <div class="app-card">
+        <img
+          src="https://gunduzo.github.io/xofade-site/icon.png"
+          alt="XOFade"
+          class="app-icon"
+        />
+        <div class="app-info">
+          <h3>
+            <span class="x">X</span><span class="o">O</span><span class="fade">Fade</span>
+          </h3>
+          <p class="app-tagline">
+            Tic-tac-toe with a twist — marks fade, boards grow up to 6×6, and
+            the AI fights back. Three difficulty levels, Rush mode, dark &
+            light themes.
+          </p>
+          <div class="app-badges">
+            <a href="https://apps.apple.com/app/xofade/id6760601543">
+              <img
+                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                alt="Download on the App Store"
+              />
+            </a>
+            <span class="badge-soon">Google Play — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Skills -->
+    <section id="skills" class="fade-in">
+      <p class="section-label">Expertise</p>
+      <h2 class="section-title">What I work with</h2>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Frontend</h3>
+          <p>React, React Native, Electron, WPF, TypeScript, JavaScript, HTML/CSS</p>
+        </div>
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <p>C#, Python, C++, Java, Node.js, .NET, gRPC, Protobuf, Bond</p>
+        </div>
+        <div class="skill-group">
+          <h3>Data & Infra</h3>
+          <p>SQL, KDB, MongoDB, WebSockets, Sharding, CI/CD, EAS, Expo</p>
+        </div>
+        <div class="skill-group">
+          <h3>Finance</h3>
+          <p>Options Trading, Pricing Models, Risk Analytics, FIX Protocol, RFQ Systems</p>
+        </div>
+        <div class="skill-group">
+          <h3>Leadership</h3>
+          <p>Team Building, Architecture, Mentorship, Cross-functional Coordination</p>
+        </div>
+        <div class="skill-group">
+          <h3>Mobile</h3>
+          <p>React Native, Expo, iOS, Android, AdMob, App Store & Play Store</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <section id="contact" class="fade-in">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Let's connect</h2>
+
+      <div class="contact-grid">
+        <a href="mailto:gunduz_o@hotmail.com" class="contact-card">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">gunduz_o@hotmail.com</div>
+        </a>
+        <a href="https://github.com/gunduzo" class="contact-card">
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">gunduzo</div>
+        </a>
+        <a href="https://gunduzo.github.io/xofade-site/" class="contact-card">
+          <div class="contact-label">Website</div>
+          <div class="contact-value">XOFade</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Gunduz Ozan</p>
+    </footer>
+
+    <!-- Scroll reveal -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
