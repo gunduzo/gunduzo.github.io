@@ -1133,6 +1133,18 @@
         })
         .catch(() => {});
 
+      // Long-press name to toggle stats (mobile)
+      const nameEl = document.querySelector("nav .name");
+      let pressTimer;
+      nameEl.addEventListener("touchstart", (e) => {
+        pressTimer = setTimeout(() => {
+          e.preventDefault();
+          statsOverlay.classList.toggle("visible");
+        }, 600);
+      }, { passive: false });
+      nameEl.addEventListener("touchend", () => clearTimeout(pressTimer));
+      nameEl.addEventListener("touchmove", () => clearTimeout(pressTimer));
+
       // Ctrl+. to toggle stats
       document.addEventListener("keydown", (e) => {
         if (e.key === "." && (e.ctrlKey || e.metaKey)) {
