@@ -1123,15 +1123,8 @@
       const statsOverlay = document.querySelector(".stats-overlay");
       const counterEl = document.getElementById("visitor-count");
 
-      // Count visit on page load via hidden image badge
-      const badgeUrl = "https://visitor-badge.laobi.icu/badge?page_id=gunduzo.github.io&t=" + Date.now();
-      fetch(badgeUrl)
-        .then((r) => r.text())
-        .then((svg) => {
-          const match = svg.match(/>(\d+)<\/text><a/);
-          if (match) counterEl.textContent = parseInt(match[1]).toLocaleString();
-        })
-        .catch(() => {});
+      // Placeholder until a real backend is wired up
+      counterEl.textContent = "—";
 
       function toggleStats() {
         statsOverlay.classList.toggle("visible");
