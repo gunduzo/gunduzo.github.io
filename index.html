@@ -330,6 +330,8 @@
 
       .app-card {
         display: flex;
+        align-items: flex-start;
+        flex-direction: row;
         gap: 28px;
         background: var(--surface);
         border: 1px solid var(--border);
@@ -346,6 +348,7 @@
       .app-icon {
         width: 88px;
         height: 88px;
+        min-width: 88px;
         border-radius: 20px;
         flex-shrink: 0;
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
