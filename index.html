@@ -1122,16 +1122,20 @@
       // Visitor counter
       const statsOverlay = document.querySelector(".stats-overlay");
       const counterEl = document.getElementById("visitor-count");
-      let countFetched = false;
 
-      // Count visit on page load (silent)
-      fetch("https://counterapi.dev/api/gunduzo-github-io/visits/up")
-        .then((r) => r.json())
-        .then((data) => {
-          counterEl.textContent = data.count.toLocaleString();
-          countFetched = true;
+      // Count visit on page load via hidden image badge
+      const badgeUrl = "https://visitor-badge.laobi.icu/badge?page_id=gunduzo.github.io&t=" + Date.now();
+      fetch(badgeUrl)
+        .then((r) => r.text())
+        .then((svg) => {
+          const match = svg.match(/>(\d+)<\/text><a/);
+          if (match) counterEl.textContent = parseInt(match[1]).toLocaleString();
         })
         .catch(() => {});
+
+      function toggleStats() {
+        statsOverlay.classList.toggle("visible");
+      }
 
       // Long-press name to toggle stats (mobile)
       const nameEl = document.querySelector("nav .name");
@@ -1139,26 +1143,17 @@
       nameEl.addEventListener("touchstart", (e) => {
         pressTimer = setTimeout(() => {
           e.preventDefault();
-          statsOverlay.classList.toggle("visible");
+          toggleStats();
         }, 600);
       }, { passive: false });
       nameEl.addEventListener("touchend", () => clearTimeout(pressTimer));
       nameEl.addEventListener("touchmove", () => clearTimeout(pressTimer));
 
-      // Ctrl+. to toggle stats
+      // Ctrl+. to toggle stats (desktop)
       document.addEventListener("keydown", (e) => {
         if (e.key === "." && (e.ctrlKey || e.metaKey)) {
           e.preventDefault();
-          statsOverlay.classList.toggle("visible");
-          if (!countFetched) {
-            fetch("https://counterapi.dev/api/gunduzo-github-io/visits?readable=true")
-              .then((r) => r.json())
-              .then((data) => {
-                counterEl.textContent = data.count.toLocaleString();
-                countFetched = true;
-              })
-              .catch(() => { counterEl.textContent = "N/A"; });
-          }
+          toggleStats();
         }
         if (e.key === "Escape") {
           statsOverlay.classList.remove("visible");
