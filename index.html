@@ -634,6 +634,76 @@
         color: var(--text);
       }
 
+      /* ── Stats overlay ────────────────────────────── */
+      .stats-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        background: rgba(6, 8, 15, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+
+      .stats-overlay.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .stats-card {
+        background: var(--surface);
+        border: 1px solid var(--border-hover);
+        border-radius: 20px;
+        padding: 40px 48px;
+        text-align: center;
+        min-width: 280px;
+      }
+
+      .stats-card h3 {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 16px;
+      }
+
+      .stats-count {
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.2;
+        margin-bottom: 8px;
+      }
+
+      .stats-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .stats-hint {
+        margin-top: 24px;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .stats-hint kbd {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 2px 6px;
+        font-family: "SF Mono", "Consolas", monospace;
+        font-size: 0.7rem;
+      }
+
       /* ── Footer ────────────────────────────────────── */
       footer {
         text-align: center;
@@ -987,6 +1057,16 @@
       </div>
     </section>
 
+    <!-- Stats overlay -->
+    <div class="stats-overlay" onclick="this.classList.remove('visible')">
+      <div class="stats-card" onclick="event.stopPropagation()">
+        <h3>Page Views</h3>
+        <div class="stats-count" id="visitor-count">--</div>
+        <div class="stats-label">total visits</div>
+        <div class="stats-hint">Press <kbd>Esc</kbd> to close</div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer>
       <p>&copy; 2026 Gunduz Ozan</p>
@@ -1037,6 +1117,40 @@
           document.querySelector(".nav-links").classList.remove("open");
           document.querySelector(".hamburger").classList.remove("open");
         });
+      });
+
+      // Visitor counter
+      const statsOverlay = document.querySelector(".stats-overlay");
+      const counterEl = document.getElementById("visitor-count");
+      let countFetched = false;
+
+      // Count visit on page load (silent)
+      fetch("https://counterapi.dev/api/gunduzo-github-io/visits/up")
+        .then((r) => r.json())
+        .then((data) => {
+          counterEl.textContent = data.count.toLocaleString();
+          countFetched = true;
+        })
+        .catch(() => {});
+
+      // Ctrl+. to toggle stats
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "." && (e.ctrlKey || e.metaKey)) {
+          e.preventDefault();
+          statsOverlay.classList.toggle("visible");
+          if (!countFetched) {
+            fetch("https://counterapi.dev/api/gunduzo-github-io/visits?readable=true")
+              .then((r) => r.json())
+              .then((data) => {
+                counterEl.textContent = data.count.toLocaleString();
+                countFetched = true;
+              })
+              .catch(() => { counterEl.textContent = "N/A"; });
+          }
+        }
+        if (e.key === "Escape") {
+          statsOverlay.classList.remove("visible");
+        }
       });
     </script>
   </body>
