@@ -120,7 +120,9 @@
 
       nav .social-icons a {
         color: var(--text-muted);
-        transition: color 0.2s, transform 0.2s;
+        transition:
+          color 0.2s,
+          transform 0.2s;
         display: flex;
       }
 
@@ -177,7 +179,10 @@
         justify-content: center;
         opacity: 0;
         transform: translateY(12px);
-        transition: opacity 0.3s, transform 0.3s, background 0.2s;
+        transition:
+          opacity 0.3s,
+          transform 0.3s,
+          background 0.2s;
         pointer-events: none;
         z-index: 99;
         backdrop-filter: blur(12px);
@@ -443,7 +448,9 @@
         border: 1px solid var(--border);
         border-radius: 20px;
         padding: 32px;
-        transition: border-color 0.3s, transform 0.3s;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
       }
 
       .app-card:hover {
@@ -530,6 +537,59 @@
         color: var(--accent);
       }
 
+      .volx-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(96, 165, 250, 0.22),
+            transparent 45%
+          ),
+          linear-gradient(135deg, #0f1c2b, #08111a 65%, #050b12);
+        border: 1px solid rgba(96, 165, 250, 0.2);
+        color: #e5f0ff;
+        font-size: 1.55rem;
+        font-weight: 800;
+        letter-spacing: -0.06em;
+      }
+
+      .volx-title {
+        letter-spacing: -0.5px;
+      }
+
+      .volx-title .vol {
+        color: #eef4ff;
+      }
+
+      .volx-title .x {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .web-badge {
+        display: inline-flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 16px;
+        border-radius: 8px;
+        border: 1px solid rgba(96, 165, 250, 0.18);
+        background: rgba(96, 165, 250, 0.08);
+        color: #dbeafe;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .web-badge:hover {
+        border-color: rgba(167, 139, 250, 0.34);
+        color: #f8fbff;
+      }
+
       .shadow-title .shadow {
         color: #4ade80;
       }
@@ -613,7 +673,9 @@
         border: 1px solid var(--border);
         border-radius: 14px;
         padding: 24px;
-        transition: border-color 0.3s, transform 0.2s;
+        transition:
+          border-color 0.3s,
+          transform 0.2s;
         display: block;
       }
 
@@ -813,7 +875,9 @@
       .fade-in {
         opacity: 0;
         transform: translateY(24px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
       }
 
       .fade-in.visible {
@@ -826,7 +890,14 @@
     <!-- Nav -->
     <nav>
       <span class="name">Gunduz Ozan</span>
-      <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <button
+        class="hamburger"
+        onclick="
+          this.classList.toggle('open');
+          document.querySelector('.nav-links').classList.toggle('open');
+        "
+        aria-label="Menu"
+      >
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links">
@@ -837,32 +908,60 @@
       </div>
       <div class="social-icons">
         <a href="mailto:gunduz_o@hotmail.com" aria-label="Email">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
         </a>
         <a href="https://github.com/gunduzo" aria-label="GitHub">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+            />
+          </svg>
         </a>
-        <a href="https://www.linkedin.com/in/gunduz-ozan-8964a13/" aria-label="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <a
+          href="https://www.linkedin.com/in/gunduz-ozan-8964a13/"
+          aria-label="LinkedIn"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
         </a>
       </div>
     </nav>
 
     <!-- Back to top -->
-    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+    <button
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Back to top"
+    >
+      &#8593;
+    </button>
 
     <!-- Hero -->
     <section class="hero">
       <p class="greeting">Software Engineer & Technical Leader</p>
       <h1>
-        Building <span class="highlight">high-performance</span> systems for
-        two decades.
+        Building <span class="highlight">high-performance</span> systems for two
+        decades.
       </h1>
       <p class="summary">
-        20+ years of full-stack engineering across Wall Street and beyond.
-        From architecting mission-critical trading platforms at Citadel and
-        J.P. Morgan to shipping indie apps — I build things that work under
-        pressure.
+        20+ years of full-stack engineering across Wall Street and beyond. From
+        architecting mission-critical trading platforms at Citadel and J.P.
+        Morgan to shipping indie apps — I build things that work under pressure.
       </p>
       <div class="hero-links">
         <a href="#contact" class="primary">Get in touch</a>
@@ -884,9 +983,9 @@
           <div class="timeline-date">Sep 2018 – Jan 2025 · New York</div>
           <div class="timeline-desc">
             Led a team of five engineers building 20+ mission-critical trading
-            applications for global options market-making desks. Drove the
-            full modernization from legacy C# to React/Electron. Stood up the
-            team's first CI/CD pipeline.
+            applications for global options market-making desks. Drove the full
+            modernization from legacy C# to React/Electron. Stood up the team's
+            first CI/CD pipeline.
           </div>
           <div class="timeline-stack">
             <span>React</span>
@@ -924,8 +1023,8 @@
           <div class="timeline-role">Sr. Programmer</div>
           <div class="timeline-date">Apr 2007 – Mar 2011 · New York</div>
           <div class="timeline-desc">
-            Led UI-heavy projects for Sales, PMG, Legal, and Ops teams.
-            Designed SnapWin — a multi-department desktop workflow app.
+            Led UI-heavy projects for Sales, PMG, Legal, and Ops teams. Designed
+            SnapWin — a multi-department desktop workflow app.
           </div>
           <div class="timeline-stack">
             <span>C#</span>
@@ -960,7 +1059,43 @@
       <h2 class="section-title">What I'm shipping</h2>
 
       <div class="apps-grid">
-        <div class="app-card" onclick="window.open('https://gunduzo.github.io/xofade-site/','_blank')" style="cursor:pointer">
+        <div
+          class="app-card"
+          onclick="
+            window.open('https://gunduzo.github.io/options-trading/', '_blank')
+          "
+          style="cursor: pointer"
+        >
+          <div class="app-icon volx-icon">Vx</div>
+          <div class="app-info">
+            <h3 class="volx-title">
+              <span class="vol">Vol</span><span class="x">X</span>
+            </h3>
+            <p class="app-tagline">
+              High-performance options desk built around a dense customizable
+              grid, live ticking quotes, mirrored put/call layouts, and
+              trader-focused ergonomics. Designed to feel closer to a real
+              market terminal than a generic dashboard.
+            </p>
+            <div class="app-badges">
+              <a
+                href="https://gunduzo.github.io/options-trading/"
+                class="web-badge"
+                onclick="event.stopPropagation()"
+                >Open Web App</a
+              >
+              <span class="badge-soon">React · TypeScript · Worker</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="app-card"
+          onclick="
+            window.open('https://gunduzo.github.io/xofade-site/', '_blank')
+          "
+          style="cursor: pointer"
+        >
           <img
             src="https://gunduzo.github.io/xofade-site/icon.png"
             alt="XOFade"
@@ -968,7 +1103,8 @@
           />
           <div class="app-info">
             <h3>
-              <span class="x">X</span><span class="o">O</span><span class="fade">Fade</span>
+              <span class="x">X</span><span class="o">O</span
+              ><span class="fade">Fade</span>
             </h3>
             <p class="app-tagline">
               Tic-tac-toe with a twist — marks fade, boards grow up to 6×6, and
@@ -976,17 +1112,25 @@
               light themes.
             </p>
             <div class="app-badges">
-              <a href="https://apps.apple.com/app/xofade/id6760601543" class="store-badge" onclick="event.stopPropagation()">
+              <a
+                href="https://apps.apple.com/app/xofade/id6760601543"
+                class="store-badge"
+                onclick="event.stopPropagation()"
+              >
                 <img
                   src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                   alt="Download on the App Store"
                 />
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.gunduzozan.xofade" class="store-badge" onclick="event.stopPropagation()">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.gunduzozan.xofade"
+                class="store-badge"
+                onclick="event.stopPropagation()"
+              >
                 <img
                   src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
                   alt="Get it on Google Play"
-                  style="height:59px;margin:-9px -8px"
+                  style="height: 59px; margin: -9px -8px"
                 />
               </a>
             </div>
@@ -1001,12 +1145,13 @@
           />
           <div class="app-info">
             <h3 class="shadow-title">
-              <span class="shadow">Shadow</span> <span class="front">Front</span>
+              <span class="shadow">Shadow</span>
+              <span class="front">Front</span>
             </h3>
             <p class="app-tagline">
-              Top-down commando shooter. Lead a squad through jungle, desert, and
-              snowfield campaigns — rescue allies, upgrade weapons, and fight your
-              way to extraction. Built with Phaser.js.
+              Top-down commando shooter. Lead a squad through jungle, desert,
+              and snowfield campaigns — rescue allies, upgrade weapons, and
+              fight your way to extraction. Built with Phaser.js.
             </p>
             <div class="app-badges">
               <span class="badge-soon">iOS — Coming Soon</span>
@@ -1015,7 +1160,16 @@
           </div>
         </div>
 
-        <div class="app-card" onclick="window.open('https://www.npmjs.com/package/@oz-public/jbook','_blank')" style="cursor:pointer">
+        <div
+          class="app-card"
+          onclick="
+            window.open(
+              'https://www.npmjs.com/package/@oz-public/jbook',
+              '_blank',
+            )
+          "
+          style="cursor: pointer"
+        >
           <div class="app-icon jbook-icon">
             <span>&gt;_</span>
           </div>
@@ -1045,7 +1199,9 @@
       <div class="skills-grid">
         <div class="skill-group">
           <h3>Frontend</h3>
-          <p>React, React Native, Electron, WPF, TypeScript, JavaScript, HTML/CSS</p>
+          <p>
+            React, React Native, Electron, WPF, TypeScript, JavaScript, HTML/CSS
+          </p>
         </div>
         <div class="skill-group">
           <h3>Backend</h3>
@@ -1057,11 +1213,17 @@
         </div>
         <div class="skill-group">
           <h3>Finance</h3>
-          <p>Options Trading, Pricing Models, Risk Analytics, FIX Protocol, RFQ Systems</p>
+          <p>
+            Options Trading, Pricing Models, Risk Analytics, FIX Protocol, RFQ
+            Systems
+          </p>
         </div>
         <div class="skill-group">
           <h3>Leadership</h3>
-          <p>Team Building, Architecture, Mentorship, Cross-functional Coordination</p>
+          <p>
+            Team Building, Architecture, Mentorship, Cross-functional
+            Coordination
+          </p>
         </div>
         <div class="skill-group">
           <h3>Mobile</h3>
@@ -1079,17 +1241,53 @@
 
       <div class="contact-grid">
         <a href="mailto:gunduz_o@hotmail.com" class="contact-card">
-          <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <svg
+            class="contact-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
           <div class="contact-label">Email</div>
           <div class="contact-value">gunduz_o@hotmail.com</div>
         </a>
         <a href="https://github.com/gunduzo" class="contact-card">
-          <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          <svg
+            class="contact-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+            />
+          </svg>
           <div class="contact-label">GitHub</div>
           <div class="contact-value">gunduzo</div>
         </a>
-        <a href="https://www.linkedin.com/in/gunduz-ozan-8964a13/" class="contact-card">
-          <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <a
+          href="https://www.linkedin.com/in/gunduz-ozan-8964a13/"
+          class="contact-card"
+        >
+          <svg
+            class="contact-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
           <div class="contact-label">LinkedIn</div>
           <div class="contact-value">Gunduz Ozan</div>
         </a>
@@ -1119,9 +1317,11 @@
             if (entry.isIntersecting) entry.target.classList.add("visible");
           });
         },
-        { threshold: 0.15 }
+        { threshold: 0.15 },
       );
-      document.querySelectorAll(".fade-in").forEach((el) => fadeObserver.observe(el));
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => fadeObserver.observe(el));
 
       // Scroll spy + back to top
       const navLinks = document.querySelectorAll(".nav-links a");
@@ -1140,7 +1340,10 @@
         });
 
         navLinks.forEach((link) => {
-          link.classList.toggle("active", link.getAttribute("href") === "#" + current);
+          link.classList.toggle(
+            "active",
+            link.getAttribute("href") === "#" + current,
+          );
         });
 
         // Back to top visibility
@@ -1172,12 +1375,16 @@
       // Long-press name to toggle stats (mobile)
       const nameEl = document.querySelector("nav .name");
       let pressTimer;
-      nameEl.addEventListener("touchstart", (e) => {
-        pressTimer = setTimeout(() => {
-          e.preventDefault();
-          toggleStats();
-        }, 600);
-      }, { passive: false });
+      nameEl.addEventListener(
+        "touchstart",
+        (e) => {
+          pressTimer = setTimeout(() => {
+            e.preventDefault();
+            toggleStats();
+          }, 600);
+        },
+        { passive: false },
+      );
       nameEl.addEventListener("touchend", () => clearTimeout(pressTimer));
       nameEl.addEventListener("touchmove", () => clearTimeout(pressTimer));
 
