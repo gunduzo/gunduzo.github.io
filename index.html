@@ -571,11 +571,10 @@
       }
 
       .web-badge {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        height: 40px;
-        padding: 0 16px;
+        display: inline-grid;
+        place-items: center;
+        min-height: 40px;
+        padding: 10px 16px 9px;
         min-width: 132px;
         border-radius: 8px;
         border: 1px solid rgba(96, 165, 250, 0.18);
@@ -588,6 +587,11 @@
         text-align: center;
         text-transform: uppercase;
         white-space: nowrap;
+      }
+
+      .web-badge span {
+        display: block;
+        transform: translateY(1px);
       }
 
       .web-badge:hover {
@@ -1087,7 +1091,7 @@
                 href="https://gunduzo.github.io/options-trading/"
                 class="web-badge"
                 onclick="event.stopPropagation()"
-                >Open Web App</a
+                ><span>Open Web App</span></a
               >
               <span class="badge-soon">React · TypeScript · Worker</span>
             </div>
